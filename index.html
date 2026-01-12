@@ -29,6 +29,15 @@
             width: 100%;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             border: 3px solid #4a4a4a;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            height: 50px;
+            width: auto;
         }
 
         h1 {
@@ -205,22 +214,25 @@
         .instruction-step {
             background: white;
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .instruction-step h3 {
             color: #1a1a1a;
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            margin: 0 0 8px 0;
+            font-size: 0.95em;
+            line-height: 1.2;
         }
 
         .instruction-step img {
             width: 100%;
+            max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            border-radius: 8px;
+            display: block;
+            margin: 0;
         }
 
         .btn-return {
@@ -349,6 +361,18 @@
             } else {
                 inchesCheck.checked = !mmCheck.checked;
             }
+            
+            // Clear inputs when switching units
+            clubWeightInput.value = '';
+            balancePointInput.value = '';
+            
+            // Update placeholders based on selected unit
+            if (inchesCheck.checked) {
+                balancePointInput.placeholder = 'ie: 28.23"';
+            } else {
+                balancePointInput.placeholder = 'ie: 719 mm';
+            }
+            
             calculate();
         }
 
